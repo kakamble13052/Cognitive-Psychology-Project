@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="form1.css">-->
+    <style>
+        div#hns
+        {
+            display: none;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<img id="image" src="/static/1.png">
+<p><p>
+<p>
+    <div id="hns">
+        <p>
+            <img src="/static/3.png">
+            <button id="b1" type="button" onclick="x2()">Pass 1</button>
+            <img src="/static/5.png">
+            <button id="b2" type="button" onclick="x2()">Pass 2</button>
+        </p>
+        <img src="/static/2.png">
+        <button id="b3" type="button" onclick="x2()">Pass 3</button>
+        <img src="/static/1.png">
+        <button id="b4" type="button" onclick="x1()">Pass 4</button>
+        <!--<img src="/static/4.png">
+        <button id="b5" type="button">Pass 5</button>-->
+    </div>
+</p>
+<script type = "text/javascript">
+
+            var image = document.getElementById("image");
+            var hns = document.getElementById("hns");
+            var flash = ["/static/1.png", "/static/blank.png"];
+            var start;
+            var end;
+            //var images = ["/static/1.png","/static/2.png","/static/3.png","/static/4.png","/static/5.png"];
+            var cp = 0;
+            function v () {
+                if(cp < flash.length)
+                {
+                    image.src = flash[cp];
+                }
+                else return;
+                cp++;
+            }
+            setInterval(v, 150);
+            setTimeout(function show() { hns.style.display = 'block'; start = Date.now(); }, 3000);
+            //b2.onclick();
+            //b3.onclick();
+            function x1(){ end = Date.now(); var x = end-start; window.alert("Fucking correct!!!!!"); $.ajax({url:'/pos', data: JSON.stringify(x), type: 'POST', success: function(response) { console.log(response); }, error: function(error) { console.log(error) }} );};
+            function x2(){ end = Date.now(); window.alert("Fuck you motherfucker, it's the wrong answer!!!!"); };
+            //b4.onclick();
+
+
+</script>
+</body>
+</html>
